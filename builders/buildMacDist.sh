@@ -13,13 +13,13 @@ python utilities/build_version.py
 python utilities/generate_messages_catalog.py
 
 # create new app
-python setup.py bdist_mac
+python setup.py bdist_mac -d arelle/build
 
 # fix up tkinter library to not use built-in one
 cp /Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/lib-dynload/_tkinter.so build/Arelle.app/Contents/MacOS
 
 # copy scripts to get packaged with app in distribution directory
-mkdir dist
+mkdir arelle/dist
 cp -R build/Arelle.app dist
 cp arelle/scripts-macOS/* dist
 
